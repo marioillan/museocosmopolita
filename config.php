@@ -1,13 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "pwmarioillan"; 
-$password = "23marioillan24";
-$dbname = "dbmarioillan_pw2324";
+$host = 'localhost';
+$dbname = 'museoDB';
+$user = 'postgres';
+$password = 'Mario321';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($host, $user, $password, $dbname);
 $conn->set_charset("utf8");
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+try {
+    $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Conexión correcta a PostgreSQL.";
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
 }
 ?>
