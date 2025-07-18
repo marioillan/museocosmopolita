@@ -1,0 +1,185 @@
+*{
+
+    font-family: Lato;
+
+}
+
+html,body{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+header, main, footer{
+
+    backdrop-filter: blur(5px);
+
+}
+
+main{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+
+}
+
+body{
+
+    overflow-x: hidden;
+    background:#ffffff url('../imagenes/obras/1933.1075\ -\ Friar\ Pedro\ Shoots\ El\ Maragato\ as\ His\ Horse\ Runs....jpg') no-repeat;
+
+}
+
+main h1{
+    
+    text-align: center;
+    font-size: 40px;
+
+}
+
+main h2{
+
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.filtros a {
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+}
+
+.filtros a{ 
+
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+
+}
+
+.filtros a:hover{ 
+
+    color: orange;
+
+}
+            
+.experiencias{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.caja-experiencia {
+    width: 45%;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+    color: #000;
+    transition: transform 0.3s ease;
+} 
+
+.valoracion{
+
+    color: #C8EA1C;
+
+}
+
+.caja-experiencia:hover{
+
+    transform: translateY(-10px);
+
+}
+
+.formulario-experiencia {
+    margin: 40px auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 750px;
+    padding: 40px 35px 55px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.formulario-experiencia h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+.formulario-experiencia p {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+
+.formulario-experiencia a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.formulario-experiencia a:hover {
+    color: orange;
+}
+
+.formulario-experiencia form input,
+.formulario-experiencia form textarea {
+    display: block;
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px auto 20px;
+    border-radius: 6px;
+    border: 2px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.formulario-experiencia form input{
+
+    font-weight: bold;
+    cursor: pointer;
+
+
+}
+
+.formulario-experiencia form input:hover {
+    background-color: orange;
+    color: #fff;
+}
+
+
+.formulario-experiencia .mensaje-experiencias-iniciarsesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.formulario-experiencia .mensaje-experiencias-iniciarsesion p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+

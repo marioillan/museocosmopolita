@@ -1,0 +1,194 @@
+.lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+*{
+
+    font-family: Lato;
+
+}
+
+html,body{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    
+    overflow-x: hidden;
+    background:#ffffff url('../imagenes/obras/1933.1158\ -\ Arrival\ of\ the\ Normandy\ Train\,\ Gare\ Saint-Lazare.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+
+}
+
+main{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formulario-registro{
+
+    margin: 40px;
+    background-color: #dfcfcf76;
+    border-radius: 10px;
+    width: 750px;
+    padding: 40px 35px 55px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    backdrop-filter: blur(2px);
+    color: #000;
+
+}
+
+.formulario-registro .input-box{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.formulario-registro h1{
+
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-weight: 700;
+
+}
+
+.input-box .input{
+
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
+
+}
+
+.input-box .input input{
+
+    width: 80%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    outline: none;
+    font-size: 15px;
+    border-radius: 6px;
+    padding-left: 50px;
+    color: #000;
+
+}
+
+.input-box .input i{
+
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+
+}
+
+.formulario-registro .conocer-usuario{
+
+    display: inline-block;
+
+}
+
+.formulario-registro .conocer-usuario #lista1{
+
+    margin-top: 10px;
+    margin-left: 20px;
+
+}
+
+.formulario-registro .aceptar-terminos{
+
+    margin-top: 20px;
+
+}
+
+.formulario-registro .aceptar-terminos label{
+
+    display: inline-block;
+    font-size: 17px;
+    margin: 10px 0 23px;
+
+}
+
+.formulario-registro .boton-registro{
+
+    width: 100%;
+    height: 45px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+
+}
+
+.formulario-registro .boton-registro:hover{
+
+    color: #ffffff;
+    background-color: orange;
+
+}
+
+
+
+.caja-afirmacion{
+
+    margin: 40px;
+    background-color: #dfcfcf76;
+    border-radius: 10px;
+    width: 750px;
+    padding: 40px 35px 55px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    backdrop-filter: blur(2px);
+    color: black;
+    text-align: center;
+
+}
+
+.caja-afirmacion h1{
+
+    font-size: 50px;
+
+
+}
+
+.caja-afirmacion p{
+
+    font-size: 20px;
+
+}
+
+.caja-afirmacion a{
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight : bold;
+
+}
+
+main .caja-afirmacion a:hover{
+
+    color: orange;
+
+}
+
+

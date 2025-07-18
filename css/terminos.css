@@ -1,0 +1,53 @@
+.lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+*{
+
+    font-family: Lato;
+
+}
+
+html,body{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    
+    overflow-x: hidden;
+    background:#ffffff url('../imagenes/obras/1928.610\ -\ At\ the\ Moulin\ Rouge.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+
+}
+
+.caja-texto{
+
+    margin: 40px;
+    background-color: #dfcfcf76;
+    border-radius: 10px;
+    width: 750px;
+    padding: 40px 35px 55px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    backdrop-filter: blur(2px);
+    color: black;
+
+}
+
+.caja-texto a{
+
+    color: #000;
+
+}
+
+main a:hover{
+
+    color: orange;
+
+}

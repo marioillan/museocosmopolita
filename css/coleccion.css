@@ -1,0 +1,161 @@
+*{
+
+    font-family: Lato;
+
+}
+
+html,body{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    
+    overflow-x: hidden;
+    background:#ffffff url('../imagenes/obras/coleccion_americas/1982.799\ -\ A\ Mexican\ Vaquero.jpg') no-repeat;
+    background-size: cover;
+    background-position:center;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.375);
+
+}
+
+main{
+    background-color: rgba(0, 0, 0, 0.438);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+main h1{
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.formularioObra{
+    margin-bottom: 20px;
+}
+
+.formularioObra a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.formularioObra a:hover{
+    color: orange;
+}
+
+.listar-colecciones{
+
+    display: flex;
+
+}
+
+.buscador-colecciones{
+    width: 25%;
+    background-color: rgba(0,0,0,0.1);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+
+.buscador-colecciones .colecciones h2{
+    margin-top: 0;
+}
+
+.buscador-colecciones ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.buscador-colecciones ul li{
+    margin-bottom: 10px;
+}
+
+.buscador-colecciones ul li a, .buscador-colecciones .colecciones a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.buscador-colecciones a:hover{
+    color: orange;
+}
+
+.obras-colecciones{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.obra{
+    background-color: rgba(0,0,0,0.1);
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: filter 0.3s ease;
+}
+
+.obra img:hover{
+    filter: brightness(0.8);
+}
+
+.obra img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.obra h2{
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.obra p{
+    margin: 5px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.pasar-pagina{
+    text-align: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.pasar-pagina a{
+    text-decoration: none;
+    color: #fff;
+    margin: 0 5px;
+    font-size: 25px;
+}
+
+.pasar-pagina a:hover{
+    color: orange;
+}
+
+.detalleObra{
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+

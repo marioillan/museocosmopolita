@@ -1,0 +1,116 @@
+.lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+*{
+
+    font-family: Lato;
+
+}
+
+html,body{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    
+    overflow-x: hidden;
+    background:#ffffff url('../imagenes/obras/1933.1158\ -\ Arrival\ of\ the\ Normandy\ Train\,\ Gare\ Saint-Lazare.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+
+}
+
+main{
+
+    display: flex;
+
+}
+
+.caja-texto{
+
+    margin: 40px;
+    background-color: #dfcfcf76;
+    border-radius: 10px;
+    width: 750px;
+    padding: 40px 35px 55px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    backdrop-filter: blur(2px);
+    color: black;
+    font-size: 20px;
+
+
+}
+
+.caja-texto form input, .caja-texto form #textArea1, .caja-texto form #lista1{
+
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    outline: none; 
+    margin-top: 10px; 
+
+}
+
+.caja-texto h1{
+
+    font-size: 35px;
+
+}
+
+.caja-texto .formulario-sugerencias h2{
+
+    font-size: 25px;
+
+}
+
+.caja-texto .volver-inicio a{
+
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.caja-texto .formulario-sugerencias form label{
+
+    margin-right: 10px;
+
+}
+
+.caja-texto .formulario-sugerencias form a input{
+
+    cursor: pointer;    
+
+}
+
+.caja-texto .volver-inicio a h3{
+
+    font-size: 25px;
+
+}
+
+.confirmacion-sugerencia{
+
+    margin: 40px;
+    background-color: #dfcfcf76;
+    border-radius: 10px;
+    padding: 40px 35px;
+    border: 2px solid rgba(255, 255, 255, 0.916);
+    backdrop-filter: blur(2px);
+    color: black;
+    font-size: 20px;
+
+}
+
+.caja-texto a:hover{
+
+    color: orange;
+
+}
+
+

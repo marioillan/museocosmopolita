@@ -1,0 +1,310 @@
+*{
+
+    font-family: Lato;
+
+}
+
+html,body{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+header, main, footer{
+
+    backdrop-filter: blur(5px);
+
+}
+
+main{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+
+}
+
+body{
+
+    overflow-x: hidden;
+    background:#ffffff url('../imagenes/obras/1933.1075\ -\ Friar\ Pedro\ Shoots\ El\ Maragato\ as\ His\ Horse\ Runs....jpg') no-repeat;
+
+
+}
+
+.cabecera-main{
+
+    margin-bottom: 60px;
+
+}
+
+main h1{
+
+    text-align: center;
+    font-size: 45px;   
+
+}
+
+main h2{
+
+    color: #F0F0F0;
+    font-size: 30px;
+
+}
+
+.seleccionable nav ul{
+
+    display: flex;
+    list-style: none;
+    margin: 50px;
+    margin-left: 230px;
+    margin-right: 115px;
+    
+
+}
+
+.seleccionable nav ul li{
+
+    font-size: 18px;
+    margin-right: 250px;
+
+
+}
+
+.seleccionable nav ul li a{
+
+    text-decoration: none;
+    color: #F0F0F0;
+    font-size: 20px;
+
+}
+
+.seleccionable nav ul li a:hover{
+
+    color: orange;
+
+}
+
+.horario{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+
+}
+
+.horario p, .horario h3{
+
+    color: #E2E2E2;
+
+}
+
+.calendario{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.tabla-calendario .explicacion p{
+
+    margin-right: 4px;
+
+}
+
+.tabla-calendario .tabla{
+
+    margin-left: 25%;
+
+}
+
+.calendario .tabla-calendario table{
+
+    align-items: center;
+    background-color: #E3C4C4;
+    color: #000;
+    border-color: #000;
+
+}
+
+.calendario .tabla-calendario .explicacion{
+
+    
+    margin-left: 90px;
+    margin-right: 115px;
+
+
+}
+
+.calendario .tabla-calendario .mes-actual{
+
+    background-color: #F44C4C;
+
+
+}
+
+.calendario .tabla-calendario .domingo{
+
+    background-color: #E8E767;
+
+
+}
+
+.calendario .tabla-calendario .festivo{
+
+    background-color:  #E50C0C;
+
+
+}
+
+.calendario .tabla-calendario .explicacion{
+
+    margin-bottom: 15px;
+
+}
+
+.calendario .tabla-calendario .explicacion p1{
+
+    color: #F44C4C;
+    margin-right: 20px;
+
+}
+
+.calendario .tabla-calendario .explicacion p2{
+
+    color: #E8E767;
+    margin-right: 20px;
+
+}
+
+.calendario .tabla-calendario .explicacion p3{
+
+    color: #E50C0C;
+
+}
+
+.caja-infoentradas{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+
+}
+
+.info-entradas{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #000;
+
+}
+
+.caja-entrada{
+
+    background-color: #fff;
+    padding: 30px;
+
+}
+
+.euro{
+
+    font-size: 30px;
+
+}
+
+.valor{
+
+    font-size: 40px;
+    color: #AD2C70;
+
+}
+
+.unidad{
+
+    font-size: 13px;
+
+}
+
+.caracteristicas{
+
+    font-size: 14px;
+
+}
+
+.caja-entrada a button{
+
+    color:  #fff;
+    padding: 8px 22px;
+    margin-top: 20px;
+    display: inline-block;
+    background-color: aqua;
+    cursor: pointer;
+
+}
+
+.caja-entrada a button:hover{
+
+    color:  #000;
+    background-color: orange;
+
+}
+
+.salas-museo{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.salas-museo h2{
+
+    font-size: 30px;
+
+}
+
+.salas-museo h3{
+
+    cursor: pointer;
+
+}
+
+.salas-museo a{
+
+    color: #C1C1C1;
+
+}
+
+.salas-museo a:hover{
+
+    color: orange;
+
+}
+
+.salas-museo h3:hover{
+    
+    transform: translateY(-2px);
+    transition: all ease 0.3s;
+
+}
+
+.plano-museo{
+
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.plano-museo img:hover{
+
+    transform: translateY(-7px);
+    transition: all ease 0.3s;
+
+
+}
+
