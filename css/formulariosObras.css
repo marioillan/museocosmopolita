@@ -45,30 +45,34 @@ main p {
     color: #666;
 }
 
-form {
-    margin: 20px 0;
+.listado table tbody button{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.formulario form {
+    margin: 20px; 
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #333;
-}
-
-form input[type="text"] {
+.formulario form input {
     width: calc(100% - 22px);
     padding: 10px;
-    margin: 5px 0 20px;
+    display: block;
+    color: #333;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-form button {
+.formulario form .boton {
     display: block;
     width: 100%;
     padding: 10px;
@@ -80,7 +84,7 @@ form button {
     font-size: 16px;
 }
 
-form button:hover {
+form .boton:hover {
     background-color: orange;
     color: #000;
 }

@@ -28,8 +28,8 @@ main{
 body{
 
     overflow-x: hidden;
-    background:#ffffff url('../imagenes/obras/1933.1075\ -\ Friar\ Pedro\ Shoots\ El\ Maragato\ as\ His\ Horse\ Runs....jpg') no-repeat;
-
+    background:#ffffff url('../imagenes/obras/coleccion_americas/1946.396\ -\ Distant\ View\ of\ Niagara\ Falls.jpg') no-repeat;
+    background-size: cover;
 
 }
 
@@ -43,6 +43,17 @@ main h1{
 
     text-align: center;
     font-size: 45px;   
+
+}
+
+.horario article{
+    display: wrap;
+
+}
+
+.horario .horario-abierto p, .horario .horario-gratuito p{
+
+    font-style: italic;
 
 }
 

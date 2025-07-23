@@ -1,61 +1,80 @@
 <?php
-    session_start();
-    include 'config.php';
+session_start();
+include 'config.php'; 
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $accion = $_POST['accion'];
-        $error = "";
+$mensaje = "";
+$error = "";
 
-        if ($accion == 'aniadir') {
-            $titulo = $_POST['titulo'];
-            $autor = $_POST['autor'];
-            $epoca = $_POST['epoca'];
-            $tematica = $_POST['tematica'];
-            $imagen = $_POST['imagen'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $accion = $_POST['accion'];
+    
+    $conn = new mysqli("localhost", "root", "", "museoDB");
+    if ($conn->connect_error) {
+        die("Error de conexión: " . $conn->connect_error);
+    }
 
-            if (empty($titulo)) $error .= "El campo titulo es obligatorio.<br>";
-            if (empty($autor)) $error .= "El campo autor es obligatorio.<br>";
-            if (empty($epoca)) $error .= "El campo época es obligatorio.<br>";
-            if (empty($tematica)) $error .= "El campo temática es obligatorio.<br>";
-            if (empty($imagen)) $error .= "El campo imagen es obligatorio.<br>";
+    // Obtener datos
+    $id = $_POST['id'] ?? null;
+    $titulo = $_POST['titulo'] ?? "";
+    $autor = $_POST['autor'] ?? "";
+    $epoca = $_POST['epoca'] ?? "";
+    $tematica = $_POST['tematica'] ?? "";
+    $imagen = $_POST['imagen'] ?? "";
 
-            if (empty($error)) {
+    if ($accion == 'aniadir') {
+        if (empty($titulo)) $error .= "El campo título es obligatorio.<br>";
+        if (empty($autor)) $error .= "El campo autor es obligatorio.<br>";
+        if (empty($epoca)) $error .= "El campo época es obligatorio.<br>";
+        if (empty($tematica)) $error .= "El campo temática es obligatorio.<br>";
+        if (empty($imagen)) $error .= "El campo imagen es obligatorio.<br>";
 
-                $sql = "INSERT INTO obras (titulo, autor, epoca, tematica, imagen) VALUES ('$titulo', '$autor', '$epoca', '$tematica', '$imagen')";
-
+        if (empty($error)) {
+            $stmt = $conn->prepare("INSERT INTO obras (titulo, autor, epoca, tematica, imagen) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $titulo, $autor, $epoca, $tematica, $imagen);
+            if ($stmt->execute()) {
+                $mensaje = "Obra añadida correctamente.";
+            } else {
+                $error = "Error al añadir obra: " . $stmt->error;
             }
-
-        } elseif ($accion == 'editar') {
-                $id = $_POST['id'];
-                $titulo = $_POST['titulo'];
-                $autor = $_POST['autor'];
-                $epoca = $_POST['epoca'];
-                $tematica = $_POST['tematica'];
-                $imagen = $_POST['imagen'];
-
-                if (empty($id)) $error .= "El campo ID es obligatorio.<br>";
-                if (empty($titulo)) $error .= "El campo titulo es obligatorio.<br>";
-                if (empty($autor)) $error .= "El campo autor es obligatorio.<br>";
-                if (empty($epoca)) $error .= "El campo época es obligatorio.<br>";
-                if (empty($tematica)) $error .= "El campo temática es obligatorio.<br>";
-                if (empty($imagen)) $error .= "El campo imagen es obligatorio.<br>";
-
-            if (empty($error)) {
-
-                $sql = "UPDATE obras SET titulo='$titulo', autor='$autor', epoca='$epoca', tematica='$tematica', imagen='$imagen' WHERE id=$id";
-
-            }
-
-        } elseif ($accion == 'eliminar') {
-            $id = $_POST['id'];
-            $sql = "DELETE FROM obras WHERE id=$id";
+            $stmt->close();
         }
 
+    } elseif ($accion == 'editar') {
+        if (empty($id)) $error .= "El campo ID es obligatorio.<br>";
+        if (empty($titulo)) $error .= "El campo título es obligatorio.<br>";
+        if (empty($autor)) $error .= "El campo autor es obligatorio.<br>";
+        if (empty($epoca)) $error .= "El campo época es obligatorio.<br>";
+        if (empty($tematica)) $error .= "El campo temática es obligatorio.<br>";
+        if (empty($imagen)) $error .= "El campo imagen es obligatorio.<br>";
 
-}
+        if (empty($error)) {
+            $stmt = $conn->prepare("UPDATE obras SET titulo=?, autor=?, epoca=?, tematica=?, imagen=? WHERE id=?");
+            $stmt->bind_param("sssssi", $titulo, $autor, $epoca, $tematica, $imagen, $id);
+            if ($stmt->execute()) {
+                $mensaje = "Obra actualizada correctamente.";
+            } else {
+                $error = "Error al actualizar obra: " . $stmt->error;
+            }
+            $stmt->close();
+        }
+
+    } elseif ($accion == 'eliminar') {
+        if (empty($id)) {
+            $error = "El campo ID es obligatorio para eliminar.";
+        } else {
+            $stmt = $conn->prepare("DELETE FROM obras WHERE id=?");
+            $stmt->bind_param("i", $id);
+            if ($stmt->execute()) {
+                $mensaje = "Obra eliminada correctamente.";
+            } else {
+                $error = "Error al eliminar obra: " . $stmt->error;
+            }
+            $stmt->close();
+        }
+    }
 
     $conn->close();
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +96,8 @@
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
     <script src="js/validar_login.js"></script>
-    <script src="js/validacion_formularioObras.js"></script>
+    <script src="js/validarObras.js"></script>
+    <script src="js/obrasCRUD.js"></script>
 
 </head>
 <body>
@@ -153,50 +173,94 @@
     
 </header>
 
-<main> 
+<main>
 
-    <h1>Gestión Obras</h1>
-    <?php if (isset($mensaje)): ?>
-        <p><?php echo $mensaje; ?></p>
+    <h1>Gestión de Obras</h1>
+    <?php if (!empty($error)): ?>
+        <div style="color: red;"><?php echo $error; ?></div>
     <?php endif; ?>
 
+    <?php if (!empty($mensaje)): ?>
+        <div style="color: green;"><?php echo $mensaje; ?></div>
+    <?php endif; ?>
+
+    <section class="listado" style="flex: 1;">
+        <h2>Listado de Obras</h2>
+        <table border="1" cellpadding="6" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Época</th>
+                    <th>Temática</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include 'config.php';
+                $resultado = $conn->query("SELECT * FROM obras ORDER BY id ASC");
+
+                if ($resultado && $resultado->num_rows > 0) {
+                    while ($obra = $resultado->fetch_assoc()) {
+                        echo "<tr>
+                            <td>{$obra['id']}</td>
+                            <td>{$obra['titulo']}</td>
+                            <td>{$obra['autor']}</td>
+                            <td>{$obra['epoca']}</td>
+                            <td>{$obra['tematica']}</td>
+                            <td><img src='{$obra['imagen']}' width='60'></td>
+                            <td>
+                                <!-- Botón Editar -->
+                                <form method='post' action='formularioObras.php' style='display:inline-block;'>
+                                    <input type='hidden' name='accion' value='editar'>
+                                    <input type='hidden' name='id' value='{$obra['id']}'>
+                                    <input type='hidden' name='titulo' value='{$obra['titulo']}'>
+                                    <input type='hidden' name='autor' value='{$obra['autor']}'>
+                                    <input type='hidden' name='epoca' value='{$obra['epoca']}'>
+                                    <input type='hidden' name='tematica' value='{$obra['tematica']}'>
+                                    <input type='hidden' name='imagen' value='{$obra['imagen']}'>
+                                    <button type='submit'>Editar</button>
+                                </form>
+
+                                <!-- Botón Eliminar -->
+                                <form method='post' action='formularioObras.php' style='display:inline-block;' onsubmit='return confirm(\"¿Seguro que quieres eliminar esta obra?\")'>
+                                    <input type='hidden' name='accion' value='eliminar'>
+                                    <input type='hidden' name='id' value='{$obra['id']}'>
+                                    <button type='submit'>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='7'>No hay obras registradas.</td></tr>";
+                }
+
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Añadir Obra -->
+    <section class="formulario">
         <h2>Añadir Obra</h2>
-        <p>Introduzca los datos de la obra que quiera añadir.</p>
-        <form method="post">
+        <p>Introduzca los datos de la nueva obra:</p>
+        <form method="post" action="formularioObras.php">
             <input type="hidden" name="accion" value="aniadir">
-            <label>Título: <input type="text" name="titulo"></label><br>
-            <label>Autor: <input type="text" name="autor"></label><br>
-            <label>Época: <input type="text" name="epoca"></label><br>
-            <label>Tematica: <input type="text" name="tematica"></label><br>
-            <label>Imagen: <input type="text" name="imagen"></label><br>
-            <button type="submit">Añadir</button>
+            <label>Título: <input type="text" name="titulo" required></label><br>
+            <label>Autor: <input type="text" name="autor" required></label><br>
+            <label>Época: <input type="text" name="epoca" required></label><br>
+            <label>Temática: <input type="text" name="tematica" required></label><br>
+            <label>Imagen (ruta): <input type="text" name="imagen" required></label><br>
+            <input class="boton" type="submit" value="Guardar">
         </form>
+    </section>
 
+</main>
 
-        <h2>Editar Obra</h2>
-        <p>Introduzca los datos de la obra que quiera editar.</p>
-        <form method="post">
-            <input type="hidden" name="accion" value="editar">
-            <label>Identificador de la obra: <input type="text" name="id"></label><br>
-            <label>Título: <input type="text" name="titulo"></label><br>
-            <label>Autor: <input type="text" name="autor"></label><br>
-            <label>Época: <input type="text" name="epoca"></label><br>
-            <label>Tema: <input type="text" name="tematica"></label><br>
-            <label>Imagen: <input type="text" name="imagen"></label><br>
-            <button type="submit">Editar</button>
-        </form>
-
-
-        <h2>Eliminar Obra</h2>
-        <p>Introduzca el ID de la obra que quiera borrar.</p>
-        <form method="post">
-            <input type="hidden" name="accion" value="eliminar">
-            <label>Identificador de la obra: <input type="text" name="id"></label><br>
-            <button type="submit">Eliminar</button>
-        </form>
-
-
-</main> 
 
 <footer>
 
