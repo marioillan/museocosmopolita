@@ -3,9 +3,11 @@
 Aplicación web desarrollada como proyecto de prácticas para la asignatura de Programación Web - Universidad de Granada
 
 📋 Descripción
+
 Museo Cosmopolita es una aplicación web completa desarrollada en dos fases que simula la gestión de un museo con exhibiciones, obras de arte y gestión de usuarios. El proyecto permite tanto a visitantes como administradores interactuar con el contenido del museo de manera intuitiva y moderna.
 
 🎯 Objetivo del Proyecto
+
 El desarrollo de esta aplicación tiene como finalidad poner en práctica los conocimientos adquiridos sobre:
 
 HTML5 y CSS3 para estructura y diseño
@@ -15,6 +17,7 @@ JavaScript (implementado con PHP) para interactividad
 Diseño responsive para múltiples dispositivos
 
 ✨ Características Principales
+
 🎨 Fase I - Desarrollo Estático
 
 Sistema de navegación intuitivo con múltiples secciones
@@ -90,13 +93,16 @@ MySQL 5.7+
 Navegador web moderno
 
 - Clonar el repositorio
+  
 bashgit clone [URL_DEL_REPOSITORIO]
 cd museo-cosmopolita
 
 - Configurar base de datos
+  
 bashmysql -u root -p < database/museo_cosmopolita.sql
 
 - Configurar conexión
+  
 php// config/database.php
 $host = 'localhost';
 $dbname = 'museo_cosmopolita';
@@ -104,17 +110,20 @@ $username = 'tu_usuario';
 $password = 'tu_contraseña';
 
 - Acceder a la aplicación
+  
 Desarrollo: http://localhost/museo-cosmopolita/pe2/
 Producción: Configurar según servidor
 
 👥 Usuarios del Sistema
 
 - Administrador Predeterminado
+- 
 Usuario: admin
 Contraseña: [definida en instalación]
 Permisos: Gestión completa del sistema
 
 - Usuarios Públicos
+  
 Registro libre desde la web
 Permisos: Comentar y valorar
 Perfil: Modificable por el usuario
